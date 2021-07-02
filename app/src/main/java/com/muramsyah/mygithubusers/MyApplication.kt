@@ -5,6 +5,7 @@ import com.muramsyah.mygithubusers.core.di.databaseModule
 import com.muramsyah.mygithubusers.core.di.networkModule
 import com.muramsyah.mygithubusers.core.di.repositoryModule
 import com.muramsyah.mygithubusers.di.useCaseModule
+import com.muramsyah.mygithubusers.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -21,7 +22,8 @@ class MyApplication : Application() {
                     databaseModule,
                     networkModule,
                     repositoryModule,
-                    useCaseModule
+                    useCaseModule,
+                    viewModelModule
                 )
             )
         }

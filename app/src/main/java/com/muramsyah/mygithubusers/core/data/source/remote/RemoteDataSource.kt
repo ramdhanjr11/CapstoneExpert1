@@ -14,8 +14,10 @@ class RemoteDataSource(private val apiService: ApiService) {
 
     suspend fun getAllListUser(): Flow<ApiResponse<List<ListUserResponse>>> {
         // shuffle the numbers
-        val numbers = arrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9)
+        val numbers = intArrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9)
         val randomNumber = numbers.random()
+
+        Log.d("randomNumber", randomNumber.toString())
 
         // get data from api
         return flow {
