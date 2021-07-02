@@ -6,5 +6,5 @@ import retrofit2.http.Query
 
 interface ApiService {
     @GET("users")
-    suspend fun getListUsers(@Query("since") since: String): ListUserResponse
+    suspend fun getListUsers(@Query("since") since: String): List<ListUserResponse>
 }
