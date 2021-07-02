@@ -4,8 +4,8 @@ import androidx.annotation.NonNull
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "listUser")
-data class ListUserEntity(
+@Entity(tableName = "user")
+data class UserEntity(
     val login: String,
     @PrimaryKey
     @NonNull
