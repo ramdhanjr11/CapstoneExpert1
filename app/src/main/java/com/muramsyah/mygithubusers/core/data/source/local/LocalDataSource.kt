@@ -8,4 +8,6 @@ class LocalDataSource(private val userDao: UserDao) {
 
     fun getAllUser(): Flow<List<UserEntity>> = userDao.getAllUser()
 
+    suspend fun insertUsers(users: List<UserEntity>) = userDao.insertUsers(users)
+
 }

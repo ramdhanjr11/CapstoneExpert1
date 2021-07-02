@@ -13,5 +13,6 @@ data class UserEntity(
     val avatarUrl: String,
     val url: String,
     val followersUrl: String,
-    val followingUrl: String
+    val followingUrl: String,
+    val isFavorite: Boolean = false
 )
