@@ -26,6 +26,8 @@ buildscript {
 
     ext.koin_version = "2.1.6"
 
+    ext.circle_image_version = "3.1.0"
+
     repositories {
         google()
         mavenCentral()

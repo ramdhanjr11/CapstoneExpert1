@@ -17,8 +17,8 @@ class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) : 
 
     override fun getItem(position: Int): Fragment {
         return when(position) {
-            0 -> UsersFragment()
-            1 -> UsersFragment()
+            0 -> UserFragment()
+            1 -> UserFragment()
             else -> Fragment()
         }
     }
