@@ -14,6 +14,7 @@ import com.muramsyah.mygithubusers.R
 import com.muramsyah.mygithubusers.core.data.source.Resource
 import com.muramsyah.mygithubusers.core.ui.HomeAdapter
 import com.muramsyah.mygithubusers.databinding.FragmentUsersBinding
+import com.muramsyah.mygithubusers.detail.DetailActivity
 import org.koin.android.viewmodel.ext.android.viewModel
 
 
@@ -41,8 +42,10 @@ class UserFragment : Fragment() {
         if (activity != null) {
 
             adapter = HomeAdapter()
-            adapter.onItemClick = { clickedUser ->
-                Toast.makeText(context, "Kamu memilih ${clickedUser.login}", Toast.LENGTH_SHORT).show()
+            adapter.onItemClick = { clickedDataUser ->
+                val intent = Intent(activity, DetailActivity::class.java)
+                intent.putExtra(DetailActivity.EXTRA_DATA, clickedDataUser)
+                startActivity(intent)
             }
 
             binding.rvUser.layoutManager = LinearLayoutManager(context)

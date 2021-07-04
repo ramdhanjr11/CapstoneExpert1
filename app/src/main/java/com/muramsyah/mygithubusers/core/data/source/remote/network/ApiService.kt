@@ -1,9 +1,8 @@
 package com.muramsyah.mygithubusers.core.data.source.remote.network
 
+import com.muramsyah.mygithubusers.core.data.source.remote.response.DetailUserResponse
 import com.muramsyah.mygithubusers.core.data.source.remote.response.ListUserResponse
-import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface ApiService {
     @GET("users")
@@ -11,4 +10,10 @@ interface ApiService {
         @Query("since") since: String,
         @Header("Authorization") token: String
     ): List<ListUserResponse>
+
+    @GET("users/{username}")
+    @Headers("Authorization: token cd64c17d1ed4aa9d1a2bd48793e9a9ca0e025a8d")
+    suspend fun getDetailUser(
+        @Path("username") username: String
+    ): DetailUserResponse
 }

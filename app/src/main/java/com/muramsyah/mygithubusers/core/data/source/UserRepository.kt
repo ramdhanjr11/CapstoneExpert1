@@ -1,15 +1,17 @@
 package com.muramsyah.mygithubusers.core.data.source
 
+import android.util.Log
 import com.muramsyah.mygithubusers.core.data.source.local.LocalDataSource
 import com.muramsyah.mygithubusers.core.data.source.remote.RemoteDataSource
 import com.muramsyah.mygithubusers.core.data.source.remote.network.ApiResponse
 import com.muramsyah.mygithubusers.core.data.source.remote.response.ListUserResponse
+import com.muramsyah.mygithubusers.core.domain.model.DetailUser
 import com.muramsyah.mygithubusers.core.domain.model.User
 import com.muramsyah.mygithubusers.core.domain.repository.IUserRepository
 import com.muramsyah.mygithubusers.core.utils.AppExecutors
 import com.muramsyah.mygithubusers.core.utils.MappingHelper
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.*
 
 class UserRepository(
     private val remoteDataSource: RemoteDataSource,
@@ -40,5 +42,25 @@ class UserRepository(
 
         }.asFlow()
     }
+
+    override fun getDetailUser(username: String): Flow<Resource<DetailUser>> {
+        Log.d("UserRepository", "empty data")
+        return flow<Resource<DetailUser>> {
+            emit(Resource.Loading())
+            when (val apiResponse = remoteDataSource.getDetailUser(username).first()) {
+                is ApiResponse.Success -> {
+                    Log.d("UserRepository", apiResponse.data.name.toString())
+                    emit(Resource.Success(MappingHelper.mapDetailResponseToDetailUser(apiResponse.data)))
+                }
+                is ApiResponse.Empty -> {
+                    Log.d("UserRepository", "empty data")
+                }
+                is ApiResponse.Error -> {
+                    emit(Resource.Error("Error get data from api!"))
+                }
+            }
+        }
+    }
+
 
 }
