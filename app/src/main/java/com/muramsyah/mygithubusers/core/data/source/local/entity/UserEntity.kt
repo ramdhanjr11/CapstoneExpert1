@@ -6,13 +6,13 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "user")
 data class UserEntity(
-    val login: String,
+    var login: String,
     @PrimaryKey
     @NonNull
-    val id: Int,
-    val avatarUrl: String,
-    val url: String,
-    val followersUrl: String,
-    val followingUrl: String,
-    val isFavorite: Boolean = false
+    var id: Int,
+    var avatarUrl: String,
+    var url: String,
+    var followersUrl: String,
+    var followingUrl: String,
+    var isFavorite: Boolean = false
 )

@@ -62,5 +62,10 @@ class UserRepository(
         }
     }
 
+    override fun setFavoriteUser(user: User, newState: Boolean) {
+        val userEntity = MappingHelper.mapDomainToEntity(user)
+        appExecutors.diskIO().execute { localDataSource.setFavoriteUser(userEntity, newState) }
+    }
+
 
 }

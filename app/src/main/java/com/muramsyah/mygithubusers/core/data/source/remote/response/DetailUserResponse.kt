@@ -39,4 +39,10 @@ data class DetailUserResponse(
 
 	@field:SerializedName("location")
 	val location: String? = null,
+
+	@field:SerializedName("followers_url")
+	val followersUrl: String? = null,
+
+	@field:SerializedName("following_url")
+	val followingUrl: String? = null
 )

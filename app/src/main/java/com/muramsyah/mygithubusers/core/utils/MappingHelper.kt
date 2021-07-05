@@ -33,7 +33,7 @@ object MappingHelper {
                 url = it.url,
                 followersUrl = it.followersUrl,
                 followingUrl = it.followingUrl,
-                isFavorite = false
+                isFavorite = it.isFavorite
             )
         }
 
@@ -44,7 +44,7 @@ object MappingHelper {
         url = input.url,
         followersUrl = input.followersUrl,
         followingUrl = input.followingUrl,
-        isFavorite = false
+        isFavorite = input.isFavorite
     )
 
     fun mapDetailResponseToDetailUser(input: DetailUserResponse): DetailUser = DetailUser(
@@ -59,6 +59,18 @@ object MappingHelper {
         company = input.company,
         publicRepos = input.publicRepos,
         name = input.name,
-        location = input.location
+        location = input.location,
+        followersUrl = input.followersUrl,
+        followingUrl = input.followingUrl
+    )
+
+    fun mapDetailUserToUser(input: DetailUser): User = User(
+        login = input.login!!,
+        id = input.id!!,
+        avatarUrl = input.avatarUrl!!,
+        url = input.url!!,
+        followersUrl = input.followersUrl!!,
+        followingUrl = input.followingUrl!!,
+        isFavorite = false
     )
 }

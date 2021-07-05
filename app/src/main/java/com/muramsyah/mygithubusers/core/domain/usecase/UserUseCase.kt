@@ -6,9 +6,7 @@ import com.muramsyah.mygithubusers.core.domain.model.User
 import kotlinx.coroutines.flow.Flow
 
 interface UserUseCase {
-
     fun getAllUser(): Flow<Resource<List<User>>>
-
     fun getDetailUser(username: String): Flow<Resource<DetailUser>>
-
+    fun setFavoriteUser(user: User, newState: Boolean)
 }

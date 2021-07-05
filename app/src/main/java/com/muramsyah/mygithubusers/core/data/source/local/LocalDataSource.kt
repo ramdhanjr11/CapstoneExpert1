@@ -10,4 +10,9 @@ class LocalDataSource(private val userDao: UserDao) {
 
     suspend fun insertUsers(users: List<UserEntity>) = userDao.insertUsers(users)
 
+    fun setFavoriteUser(user: UserEntity, newState: Boolean) {
+        user.isFavorite = newState
+        userDao.updateFavoriteUser(user)
+    }
+
 }

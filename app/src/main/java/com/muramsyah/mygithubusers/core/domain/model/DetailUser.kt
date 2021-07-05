@@ -12,5 +12,7 @@ data class DetailUser(
     val company: String? = null,
     val publicRepos: Int? = null,
     val name: String? = null,
-    val location: String? = null
+    val location: String? = null,
+    val followersUrl: String? = null,
+    val followingUrl: String? = null,
 )

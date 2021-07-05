@@ -1,19 +1,17 @@
 package com.muramsyah.mygithubusers.detail
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
-import android.view.Menu
-import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.muramsyah.mygithubusers.R
 import com.muramsyah.mygithubusers.core.data.source.Resource
 import com.muramsyah.mygithubusers.core.domain.model.DetailUser
 import com.muramsyah.mygithubusers.core.domain.model.User
+import com.muramsyah.mygithubusers.core.utils.MappingHelper
 import com.muramsyah.mygithubusers.databinding.ActivityDetailBinding
 import kotlinx.android.synthetic.main.activity_detail.*
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -23,7 +21,6 @@ class DetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailBinding
 
     private val viewModel: DetailViewModel by viewModel()
-    private var menu: Menu? = null
 
     companion object {
         const val EXTRA_DATA = "extra_data"
@@ -42,6 +39,14 @@ class DetailActivity : AppCompatActivity() {
         val detailUser = intent.getParcelableExtra<User>(EXTRA_DATA)
 
         if (detailUser != null) {
+            if (detailUser.isFavorite) {
+                isFavorite = detailUser.isFavorite
+                setFavoriteState(true)
+            } else {
+                isFavorite = detailUser.isFavorite
+                setFavoriteState(false)
+            }
+
             viewModel.getDetailUser(detailUser.login).observe(this, Observer { user ->
                 when (user) {
                     is Resource.Loading -> {
@@ -80,6 +85,12 @@ class DetailActivity : AppCompatActivity() {
             if (detailUser.company == null) tvCompany.text = getString(R.string.null_text) else tvCompany.text = detailUser.company
             if (detailUser.location == null) tvLocation.text = getString(R.string.null_text) else tvLocation.text = detailUser.location
 
+            binding.fabFavorite.setOnClickListener {
+                isFavorite = !isFavorite
+                val user = MappingHelper.mapDetailUserToUser(detailUser)
+                viewModel.setFavoriteUser(user, isFavorite)
+                setFavoriteState(isFavorite)
+            }
         }
     }
 
@@ -125,33 +136,11 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_detail_activity, menu)
-        this.menu = menu
-        return super.onCreateOptionsMenu(menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.favorite) {
-            if (!isFavorite) {
-                isFavorite = !isFavorite
-                setFavoriteState(true)
-                Toast.makeText(this, "Kamu menyimpan user", Toast.LENGTH_SHORT).show()
-            } else {
-                isFavorite = !isFavorite
-                setFavoriteState(false)
-                Toast.makeText(this, "Kamu menghapus user", Toast.LENGTH_SHORT).show()
-            }
-        }
-        return super.onOptionsItemSelected(item)
-    }
-
-    @SuppressLint("UseCompatLoadingForDrawables")
     private fun setFavoriteState(state: Boolean) {
         if (state) {
-            menu?.findItem(R.id.favorite)!!.icon = getDrawable(R.drawable.ic_baseline_favorite)
+            binding.fabFavorite.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_baseline_favorite))
         } else {
-            menu?.findItem(R.id.favorite)!!.icon = getDrawable(R.drawable.ic_baseline_favorite_border)
+            binding.fabFavorite.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_baseline_favorite_border))
         }
     }
 }
