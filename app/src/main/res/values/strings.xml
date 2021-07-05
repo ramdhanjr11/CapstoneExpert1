@@ -11,4 +11,5 @@
     <string name="company">Company</string>
     <string name="location">Location</string>
     <string name="null_text">null</string>
+    <string name="search_title">Cari Pengguna</string>
 </resources>
