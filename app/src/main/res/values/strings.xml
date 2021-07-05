@@ -3,4 +3,12 @@
     <string name="tab_text_1">User</string>
     <string name="tab_text_2">Favorite</string>
     <string name="detail_user">Detail User</string>
+    <string name="username">\@%s</string>
+    <string name="followers">%d</string>
+    <string name="detail_user_item_detail">Detail of %s</string>
+    <string name="bio">Bio</string>
+    <string name="blog">Blog</string>
+    <string name="company">Company</string>
+    <string name="location">Location</string>
+    <string name="null_text">null</string>
 </resources>
