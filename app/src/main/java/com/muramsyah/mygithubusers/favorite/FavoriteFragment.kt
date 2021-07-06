@@ -3,25 +3,23 @@ package com.muramsyah.mygithubusers.favorite
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.muramsyah.mygithubusers.R
 import com.muramsyah.mygithubusers.core.data.source.Resource
 import com.muramsyah.mygithubusers.core.ui.HomeAdapter
 import com.muramsyah.mygithubusers.databinding.FragmentUsersBinding
 import com.muramsyah.mygithubusers.detail.DetailActivity
-import com.muramsyah.mygithubusers.home.HomeViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
 
 
 class FavoriteFragment : Fragment() {
 
-    private val viewModel: HomeViewModel by viewModel()
+    private val viewModel: FavoriteViewModel by viewModel()
 
     private var _binding: FragmentUsersBinding? = null
     private val binding get() = _binding!!
@@ -49,26 +47,17 @@ class FavoriteFragment : Fragment() {
                 startActivity(intent)
             }
 
-            binding.rvUser.layoutManager = LinearLayoutManager(context)
-            binding.rvUser.setHasFixedSize(true)
+            binding.rvUser.apply {
+                layoutManager = LinearLayoutManager(context)
+                addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+                setHasFixedSize(true)
+            }
 
-            viewModel.getAllUser.observe(viewLifecycleOwner, Observer { users ->
-                when (users) {
-                    is Resource.Loading -> {
-                        binding.progressBar.visibility = View.VISIBLE
-                        Log.d("UsersFragment", users.data.toString())
-                    }
-                    is Resource.Success -> {
-                        binding.progressBar.visibility = View.GONE
-                        Log.d("UsersFragment", users.data.toString())
-                        adapter.setData(users.data)
-                        binding.rvUser.adapter = adapter
-                    }
-                    is Resource.Error -> {
-                        binding.progressBar.visibility = View.GONE
-                        Log.e("UsersFragment", users.message.toString())
-                    }
-                }
+            viewModel.favoriteUsers.observe(viewLifecycleOwner, Observer { favoriteUsers ->
+                Log.d("FavoriteFragment", favoriteUsers.toString())
+                adapter.setData(favoriteUsers)
+                binding.rvUser.adapter = adapter
+                binding.layoutItemViewEmpty.root.visibility = if(favoriteUsers.isNotEmpty()) View.GONE else View.VISIBLE
             })
 
         }

@@ -3,14 +3,13 @@ package com.muramsyah.mygithubusers.home
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.muramsyah.mygithubusers.R
 import com.muramsyah.mygithubusers.core.data.source.Resource
 import com.muramsyah.mygithubusers.core.ui.HomeAdapter
 import com.muramsyah.mygithubusers.databinding.FragmentUsersBinding
@@ -48,8 +47,11 @@ class UserFragment : Fragment() {
                 startActivity(intent)
             }
 
-            binding.rvUser.layoutManager = LinearLayoutManager(context)
-            binding.rvUser.setHasFixedSize(true)
+            binding.rvUser.apply {
+                layoutManager = LinearLayoutManager(context)
+                addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+                setHasFixedSize(true)
+            }
 
             viewModel.getAllUser.observe(viewLifecycleOwner, Observer { users ->
                 when (users) {

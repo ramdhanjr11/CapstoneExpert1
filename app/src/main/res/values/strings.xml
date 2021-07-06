@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MyGithubUsers</string>
+    <string name="app_name">My Github Users</string>
     <string name="tab_text_1">User</string>
     <string name="tab_text_2">Favorite</string>
     <string name="detail_user">Detail User</string>
@@ -12,4 +12,5 @@
     <string name="location">Location</string>
     <string name="null_text">null</string>
     <string name="search_title">Cari Pengguna</string>
+    <string name="empty_favorite">Kamu belum memiliki user favorite</string>
 </resources>

@@ -19,5 +19,5 @@ data class ListUserResponse(
     val followersUrl: String,
 
     @field:SerializedName("following_url")
-    val followingUrl: String,
+    val followingUrl: String
 )

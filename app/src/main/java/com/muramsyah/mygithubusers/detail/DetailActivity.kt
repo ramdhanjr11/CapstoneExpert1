@@ -96,42 +96,10 @@ class DetailActivity : AppCompatActivity() {
 
     private fun setVisibilityLayout(state: Boolean) {
         if (state) {
-            with(binding.layoutItemDetailHeader) {
-                view.visibility = View.VISIBLE
-                view2.visibility = View.VISIBLE
-                tvDetailOf.visibility = View.VISIBLE
-                tvLocation.visibility = View.VISIBLE
-                tvCompany.visibility = View.VISIBLE
-                tvBlog.visibility = View.VISIBLE
-                tvBio.visibility = View.VISIBLE
-                tvFollowing.visibility = View.VISIBLE
-                tvFollowers.visibility = View.VISIBLE
-                tvFullname.visibility = View.VISIBLE
-                tvRepository.visibility = View.VISIBLE
-                textView2.visibility = View.VISIBLE
-                textView4.visibility = View.VISIBLE
-                textView6.visibility = View.VISIBLE
-                textView8.visibility = View.VISIBLE
-            }
+            binding.layoutItemDetailHeader.root.visibility = View.VISIBLE
             binding.progressBar.visibility = View.GONE
         } else {
-            with(binding.layoutItemDetailHeader) {
-                view.visibility = View.GONE
-                view2.visibility = View.GONE
-                tvDetailOf.visibility = View.GONE
-                tvLocation.visibility = View.GONE
-                tvCompany.visibility = View.GONE
-                tvBlog.visibility = View.GONE
-                tvBio.visibility = View.GONE
-                tvFollowing.visibility = View.GONE
-                tvFollowers.visibility = View.GONE
-                tvFullname.visibility = View.GONE
-                tvRepository.visibility = View.GONE
-                textView2.visibility = View.GONE
-                textView4.visibility = View.GONE
-                textView6.visibility = View.GONE
-                textView8.visibility = View.GONE
-            }
+            binding.layoutItemDetailHeader.root.visibility = View.GONE
             binding.progressBar.visibility = View.VISIBLE
         }
     }

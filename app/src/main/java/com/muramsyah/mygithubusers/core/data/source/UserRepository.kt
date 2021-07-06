@@ -67,5 +67,11 @@ class UserRepository(
         appExecutors.diskIO().execute { localDataSource.setFavoriteUser(userEntity, newState) }
     }
 
+    override fun getFavoriteUsers(): Flow<List<User>> {
+        return localDataSource.getFavoriteUsers().map {
+            MappingHelper.mapEntitiesToDomain(it)
+        }
+    }
+
 
 }

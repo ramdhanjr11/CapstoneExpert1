@@ -10,4 +10,5 @@ class UserInteractor(private val userRepository: IUserRepository): UserUseCase {
     override fun getAllUser(): Flow<Resource<List<User>>> = userRepository.getAllUser()
     override fun getDetailUser(username: String): Flow<Resource<DetailUser>> = userRepository.getDetailUser(username)
     override fun setFavoriteUser(user: User, newState: Boolean) = userRepository.setFavoriteUser(user, newState)
+    override fun getFavoriteUsers(): Flow<List<User>> = userRepository.getFavoriteUsers()
 }

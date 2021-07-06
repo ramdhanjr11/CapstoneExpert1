@@ -9,4 +9,5 @@ interface UserUseCase {
     fun getAllUser(): Flow<Resource<List<User>>>
     fun getDetailUser(username: String): Flow<Resource<DetailUser>>
     fun setFavoriteUser(user: User, newState: Boolean)
+    fun getFavoriteUsers(): Flow<List<User>>
 }

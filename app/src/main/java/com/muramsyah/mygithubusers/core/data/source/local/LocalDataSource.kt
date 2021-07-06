@@ -15,4 +15,6 @@ class LocalDataSource(private val userDao: UserDao) {
         userDao.updateFavoriteUser(user)
     }
 
+    fun getFavoriteUsers(): Flow<List<UserEntity>> = userDao.getFavoriteUsers()
+
 }

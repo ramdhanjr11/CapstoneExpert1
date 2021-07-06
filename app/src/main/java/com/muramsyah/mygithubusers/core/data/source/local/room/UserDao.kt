@@ -15,4 +15,7 @@ interface UserDao {
 
     @Update
     fun updateFavoriteUser(user: UserEntity)
+
+    @Query("SELECT * FROM user WHERE isFavorite = 1")
+    fun getFavoriteUsers(): Flow<List<UserEntity>>
 }
