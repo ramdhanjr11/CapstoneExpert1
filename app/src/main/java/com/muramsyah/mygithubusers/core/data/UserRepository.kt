@@ -76,4 +76,23 @@ class UserRepository(
         }
     }
 
+    override suspend fun getSearchUser(username: String): List<User> {
+        val resultUser = ArrayList<User>()
+        when (val apiResponse = remoteDataSource.getSearchUser(username).first()) {
+            is ApiResponse.Success -> {
+                Log.d("UserRepository", apiResponse.data.size.toString())
+                val userEntities = MappingHelper.mapResponsesToEntities(apiResponse.data)
+                val user = MappingHelper.mapEntitiesToDomain(userEntities)
+                resultUser.addAll(user)
+            }
+            is ApiResponse.Empty -> {
+                Log.d("UserRepository", "empty data")
+            }
+            is ApiResponse.Error -> {
+                Log.d("UserRepository", "Error get data search user from api!")
+            }
+        }
+        return resultUser
+    }
+
 }

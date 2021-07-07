@@ -1,5 +1,6 @@
 package com.muramsyah.mygithubusers.core.ui
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -33,6 +34,7 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.ListViewHolder>() {
     inner class ListViewHolder(private val binding: ItemUserLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(data: User) {
             with(binding) {
+                Log.d("avatarUrl", data.avatarUrl)
                 Glide.with(itemView.context)
                     .load(data.avatarUrl)
                     .into(imgItemUser)

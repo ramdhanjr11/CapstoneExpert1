@@ -13,4 +13,7 @@
     <string name="null_text">null</string>
     <string name="search_title">Cari Pengguna</string>
     <string name="empty_favorite">Kamu belum memiliki user favorite</string>
+    <string name="search">Search</string>
+    <string name="pencarian_user">Pencarian User</string>
+    <string name="cari_pengguna">Cari pengguna</string>
 </resources>
