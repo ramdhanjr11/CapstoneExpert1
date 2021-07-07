@@ -1,2 +1,3 @@
 rootProject.name = "MyGithubUsers"
 include ':app'
+include ':core'

@@ -1,7 +1,7 @@
 package com.muramsyah.mygithubusers.di
 
-import com.muramsyah.mygithubusers.core.domain.usecase.UserInteractor
-import com.muramsyah.mygithubusers.core.domain.usecase.UserUseCase
+import com.muramsyah.core.domain.usecase.UserInteractor
+import com.muramsyah.core.domain.usecase.UserUseCase
 import com.muramsyah.mygithubusers.detail.DetailViewModel
 import com.muramsyah.mygithubusers.favorite.FavoriteViewModel
 import com.muramsyah.mygithubusers.home.HomeViewModel

@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">My Github Users</string>
+    <string name="tab_text_1">List User</string>
+    <string name="tab_text_2">Favorite</string>
+    <string name="detail_user">Detail User</string>
+    <string name="username">\@%s</string>
+    <string name="followers">%d</string>
+    <string name="detail_user_item_detail">Detail of %s</string>
+    <string name="bio">Bio</string>
+    <string name="blog">Blog</string>
+    <string name="company">Company</string>
+    <string name="location">Location</string>
+    <string name="null_text">null</string>
+    <string name="search_title">Cari Pengguna</string>
+    <string name="empty_favorite">Kamu belum memiliki user favorite</string>
+    <string name="search">Search</string>
+    <string name="pencarian_user">Pencarian User</string>
+    <string name="cari_pengguna">Cari pengguna</string>
+</resources>

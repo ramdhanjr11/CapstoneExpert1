@@ -10,7 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.muramsyah.mygithubusers.core.ui.HomeAdapter
+import com.muramsyah.core.ui.HomeAdapter
 import com.muramsyah.mygithubusers.databinding.ActivitySearchBinding
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch

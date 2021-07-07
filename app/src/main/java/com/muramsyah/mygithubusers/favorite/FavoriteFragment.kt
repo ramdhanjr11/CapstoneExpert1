@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.muramsyah.mygithubusers.core.ui.HomeAdapter
+import com.muramsyah.core.ui.HomeAdapter
 import com.muramsyah.mygithubusers.databinding.FragmentUsersBinding
 import com.muramsyah.mygithubusers.detail.DetailActivity
 import org.koin.android.viewmodel.ext.android.viewModel

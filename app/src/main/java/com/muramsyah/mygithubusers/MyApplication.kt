@@ -1,9 +1,9 @@
 package com.muramsyah.mygithubusers
 
 import android.app.Application
-import com.muramsyah.mygithubusers.core.di.databaseModule
-import com.muramsyah.mygithubusers.core.di.networkModule
-import com.muramsyah.mygithubusers.core.di.repositoryModule
+import com.muramsyah.core.di.databaseModule
+import com.muramsyah.core.di.networkModule
+import com.muramsyah.core.di.repositoryModule
 import com.muramsyah.mygithubusers.di.useCaseModule
 import com.muramsyah.mygithubusers.di.viewModelModule
 import org.koin.android.ext.koin.androidContext

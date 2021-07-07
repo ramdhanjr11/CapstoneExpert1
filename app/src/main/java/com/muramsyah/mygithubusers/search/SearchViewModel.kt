@@ -2,7 +2,7 @@ package com.muramsyah.mygithubusers.search
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
-import com.muramsyah.mygithubusers.core.domain.usecase.UserUseCase
+import com.muramsyah.core.domain.usecase.UserUseCase
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.channels.BroadcastChannel
 import kotlinx.coroutines.channels.Channel
