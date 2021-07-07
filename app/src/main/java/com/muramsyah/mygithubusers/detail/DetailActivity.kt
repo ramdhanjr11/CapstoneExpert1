@@ -8,7 +8,7 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.muramsyah.mygithubusers.R
-import com.muramsyah.mygithubusers.core.data.source.Resource
+import com.muramsyah.mygithubusers.core.data.Resource
 import com.muramsyah.mygithubusers.core.domain.model.DetailUser
 import com.muramsyah.mygithubusers.core.domain.model.User
 import com.muramsyah.mygithubusers.core.utils.MappingHelper
@@ -87,8 +87,7 @@ class DetailActivity : AppCompatActivity() {
 
             binding.fabFavorite.setOnClickListener {
                 isFavorite = !isFavorite
-                val user = MappingHelper.mapDetailUserToUser(detailUser)
-                viewModel.setFavoriteUser(user, isFavorite)
+                viewModel.setFavoriteUser(detailUser, isFavorite)
                 setFavoriteState(isFavorite)
             }
         }

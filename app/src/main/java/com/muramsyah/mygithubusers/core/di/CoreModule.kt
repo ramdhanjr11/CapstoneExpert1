@@ -1,7 +1,7 @@
 package com.muramsyah.mygithubusers.core.di
 
 import androidx.room.Room
-import com.muramsyah.mygithubusers.core.data.source.UserRepository
+import com.muramsyah.mygithubusers.core.data.UserRepository
 import com.muramsyah.mygithubusers.core.data.source.local.LocalDataSource
 import com.muramsyah.mygithubusers.core.data.source.local.room.UserDatabase
 import com.muramsyah.mygithubusers.core.data.source.remote.RemoteDataSource

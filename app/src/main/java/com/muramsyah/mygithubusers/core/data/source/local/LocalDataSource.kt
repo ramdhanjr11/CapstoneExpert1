@@ -16,5 +16,4 @@ class LocalDataSource(private val userDao: UserDao) {
     }
 
     fun getFavoriteUsers(): Flow<List<UserEntity>> = userDao.getFavoriteUsers()
-
 }

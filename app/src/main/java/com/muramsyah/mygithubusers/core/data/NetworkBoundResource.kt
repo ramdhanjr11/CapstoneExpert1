@@ -1,4 +1,4 @@
-package com.muramsyah.mygithubusers.core.data.source
+package com.muramsyah.mygithubusers.core.data
 
 import com.muramsyah.mygithubusers.core.data.source.remote.network.ApiResponse
 import kotlinx.coroutines.flow.*

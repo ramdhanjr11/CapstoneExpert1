@@ -1,4 +1,4 @@
-package com.muramsyah.mygithubusers.core.data.source
+package com.muramsyah.mygithubusers.core.data
 
 import android.util.Log
 import com.muramsyah.mygithubusers.core.data.source.local.LocalDataSource
@@ -10,8 +10,10 @@ import com.muramsyah.mygithubusers.core.domain.model.User
 import com.muramsyah.mygithubusers.core.domain.repository.IUserRepository
 import com.muramsyah.mygithubusers.core.utils.AppExecutors
 import com.muramsyah.mygithubusers.core.utils.MappingHelper
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.map
 
 class UserRepository(
     private val remoteDataSource: RemoteDataSource,
@@ -62,8 +64,9 @@ class UserRepository(
         }
     }
 
-    override fun setFavoriteUser(user: User, newState: Boolean) {
-        val userEntity = MappingHelper.mapDomainToEntity(user)
+    override fun setFavoriteUser(detailUser: DetailUser, newState: Boolean) {
+        val mDetailUser = MappingHelper.mapDetailUserToUser(detailUser)
+        val userEntity = MappingHelper.mapDomainToEntity(mDetailUser)
         appExecutors.diskIO().execute { localDataSource.setFavoriteUser(userEntity, newState) }
     }
 
@@ -72,6 +75,5 @@ class UserRepository(
             MappingHelper.mapEntitiesToDomain(it)
         }
     }
-
 
 }
