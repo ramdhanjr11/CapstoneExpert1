@@ -1,10 +1,10 @@
 package com.muramsyah.mygithubusers.search
 
-import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.muramsyah.mygithubusers.core.ui.HomeAdapter
 import com.muramsyah.mygithubusers.databinding.ActivitySearchBinding
-import com.muramsyah.mygithubusers.detail.DetailActivity
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -63,9 +62,7 @@ class SearchActivity : AppCompatActivity() {
         })
 
         adapter.onItemClick = { clickedDataUser ->
-            val intent = Intent(this, DetailActivity::class.java)
-            intent.putExtra(DetailActivity.EXTRA_DATA, clickedDataUser)
-            startActivity(intent)
+            Toast.makeText(this, "Kamu memilih ${clickedDataUser.login}!", Toast.LENGTH_SHORT).show()
         }
     }
 }

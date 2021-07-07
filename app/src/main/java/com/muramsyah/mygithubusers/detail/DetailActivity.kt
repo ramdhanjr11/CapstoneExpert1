@@ -8,10 +8,8 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.muramsyah.mygithubusers.R
-import com.muramsyah.mygithubusers.core.data.Resource
 import com.muramsyah.mygithubusers.core.domain.model.DetailUser
 import com.muramsyah.mygithubusers.core.domain.model.User
-import com.muramsyah.mygithubusers.core.utils.MappingHelper
 import com.muramsyah.mygithubusers.databinding.ActivityDetailBinding
 import kotlinx.android.synthetic.main.activity_detail.*
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -49,16 +47,16 @@ class DetailActivity : AppCompatActivity() {
 
             viewModel.getDetailUser(detailUser.login).observe(this, Observer { user ->
                 when (user) {
-                    is Resource.Loading -> {
+                    is com.muramsyah.mygithubusers.core.data.Resource.Loading -> {
                         Log.d("DetailActivity", "Loading")
                         setVisibilityLayout(false)
                     }
-                    is Resource.Success -> {
+                    is com.muramsyah.mygithubusers.core.data.Resource.Success -> {
                         Log.d("DetailActivity", user.data.toString())
                         setVisibilityLayout(true)
                         user.data?.let { showDetailUser(it) }
                     }
-                    is Resource.Error -> {
+                    is com.muramsyah.mygithubusers.core.data.Resource.Error -> {
                         setVisibilityLayout(false)
                         Log.d("DetailActivity", "Error")
                     }

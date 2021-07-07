@@ -22,7 +22,7 @@ class UserRepository(
 ) : IUserRepository {
 
     override fun getAllUser(): Flow<Resource<List<User>>> {
-        return object : NetworkBoundResource<List<User>, List<ListUserResponse>>() {
+        return object : com.muramsyah.mygithubusers.core.data.NetworkBoundResource<List<User>, List<ListUserResponse>>() {
             override fun loadFromDB(): Flow<List<User>> {
                 return localDataSource.getAllUser().map {
                     MappingHelper.mapEntitiesToDomain(it)
@@ -52,7 +52,13 @@ class UserRepository(
             when (val apiResponse = remoteDataSource.getDetailUser(username).first()) {
                 is ApiResponse.Success -> {
                     Log.d("UserRepository", apiResponse.data.name.toString())
-                    emit(Resource.Success(MappingHelper.mapDetailResponseToDetailUser(apiResponse.data)))
+                    emit(
+                        Resource.Success(
+                            MappingHelper.mapDetailResponseToDetailUser(
+                                apiResponse.data
+                            )
+                        )
+                    )
                 }
                 is ApiResponse.Empty -> {
                     Log.d("UserRepository", "empty data")

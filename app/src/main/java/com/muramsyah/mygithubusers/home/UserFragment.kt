@@ -3,17 +3,17 @@ package com.muramsyah.mygithubusers.home
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.muramsyah.mygithubusers.R
 import com.muramsyah.mygithubusers.core.data.Resource
 import com.muramsyah.mygithubusers.core.ui.HomeAdapter
 import com.muramsyah.mygithubusers.databinding.FragmentUsersBinding
 import com.muramsyah.mygithubusers.detail.DetailActivity
-import com.muramsyah.mygithubusers.search.SearchActivity
 import org.koin.android.viewmodel.ext.android.viewModel
 
 

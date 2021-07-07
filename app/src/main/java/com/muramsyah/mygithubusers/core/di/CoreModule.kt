@@ -48,5 +48,11 @@ val repositoryModule = module {
     single { LocalDataSource(get()) }
     single { RemoteDataSource(get()) }
     factory { AppExecutors() }
-    single<IUserRepository> { UserRepository(get(), get(), get()) }
+    single<IUserRepository> {
+        UserRepository(
+            get(),
+            get(),
+            get()
+        )
+    }
 }
