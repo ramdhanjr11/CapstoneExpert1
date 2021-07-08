@@ -7,6 +7,7 @@
     tools:context=".home.MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/Theme.MyGithubUsers.AppBarOverlay">
@@ -16,22 +17,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_scrollFlags="scroll|enterAlways" />
-
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tabs"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:tabTextColor="@color/primary"
-            app:tabIndicatorColor="@color/primary"
-            app:tabIndicatorAnimationMode="elastic"
-            app:tabMode="fixed"
-            android:background="?attr/colorOnPrimary" />
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/view_pager"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_user"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        android:layout_height="match_parent" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:progressTint="@color/primary"
+        android:visibility="gone"
+        android:layout_gravity="center_vertical|center_horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

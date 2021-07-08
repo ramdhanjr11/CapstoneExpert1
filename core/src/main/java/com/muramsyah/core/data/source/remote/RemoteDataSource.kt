@@ -50,7 +50,6 @@ class RemoteDataSource(private val apiService: ApiService) {
     }
 
     suspend fun getSearchUser(username: String): Flow<ApiResponse<List<ListUserResponse>>> {
-
         // get data user from search api
         return flow {
             try {

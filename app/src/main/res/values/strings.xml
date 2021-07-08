@@ -16,4 +16,5 @@
     <string name="search">Search</string>
     <string name="pencarian_user">Pencarian User</string>
     <string name="cari_pengguna">Cari pengguna</string>
+    <string name="title_favorite">Favorite</string>
 </resources>

@@ -31,7 +31,6 @@ class UserRepository(
 
             override fun shouldFetch(data: List<User>?): Boolean =
                 data == null || data.isEmpty()
-//                true // ganti dengan true jika ingin selalu mengambil data dari internet
 
             override suspend fun createCall(): Flow<ApiResponse<List<ListUserResponse>>> =
                 remoteDataSource.getAllListUser()
