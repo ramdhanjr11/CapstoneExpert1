@@ -1,12 +1,11 @@
 package com.muramsyah.mygithubusers.favorite
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.FrameLayout
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -50,7 +49,7 @@ class FavoriteActivity : AppCompatActivity() {
             setHasFixedSize(true)
         }
 
-        viewModel.favoriteUsers.observe(this, Observer { favoriteUsers ->
+        viewModel.favoriteUsers.observe(this, { favoriteUsers ->
             Log.d("FavoriteFragment", favoriteUsers.toString())
             adapter.setData(favoriteUsers)
             rvUser.adapter = adapter

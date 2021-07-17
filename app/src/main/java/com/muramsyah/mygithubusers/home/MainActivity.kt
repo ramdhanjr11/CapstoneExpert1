@@ -5,11 +5,8 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
-import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
-import com.google.android.material.tabs.TabLayout
-import androidx.viewpager.widget.ViewPager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -18,7 +15,6 @@ import com.muramsyah.core.data.Resource
 import com.muramsyah.core.ui.HomeAdapter
 import com.muramsyah.mygithubusers.R
 import com.muramsyah.mygithubusers.databinding.ActivityMainBinding
-import com.muramsyah.mygithubusers.databinding.FragmentUsersBinding
 import com.muramsyah.mygithubusers.detail.DetailActivity
 import com.muramsyah.mygithubusers.search.SearchActivity
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -52,7 +48,7 @@ class MainActivity : AppCompatActivity() {
             setHasFixedSize(true)
         }
 
-        viewModel.getAllUser.observe(this, Observer { users ->
+        viewModel.getAllUser.observe(this, { users ->
             when (users) {
                 is Resource.Loading -> {
                     binding.progressBar.visibility = View.VISIBLE
