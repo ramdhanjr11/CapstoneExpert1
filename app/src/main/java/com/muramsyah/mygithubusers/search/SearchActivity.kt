@@ -57,7 +57,7 @@ class SearchActivity : AppCompatActivity() {
                 binding.rvUser.adapter = adapter
                 binding.rvUser.setHasFixedSize(true)
             } else {
-                Log.d("SearchActivity", "Empty data")
+                Toast.makeText(this@SearchActivity, "Empty data", Toast.LENGTH_SHORT).show()
             }
         })
 

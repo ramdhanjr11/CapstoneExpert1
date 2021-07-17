@@ -20,11 +20,6 @@ class DetailActivity : AppCompatActivity() {
 
     private val viewModel: DetailViewModel by viewModel()
 
-    companion object {
-        const val EXTRA_DATA = "extra_data"
-        private var isFavorite = false
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailBinding.inflate(layoutInflater)
@@ -107,5 +102,10 @@ class DetailActivity : AppCompatActivity() {
         } else {
             binding.fabFavorite.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_baseline_favorite_border))
         }
+    }
+
+    companion object {
+        const val EXTRA_DATA = "extra_data"
+        private var isFavorite = false
     }
 }
