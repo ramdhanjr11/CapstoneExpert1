@@ -16,6 +16,7 @@ import com.muramsyah.mygithubusers.detail.DetailActivity
 import com.muramsyah.mygithubusers.favorite.di.favoriteModule
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
+import org.koin.core.context.unloadKoinModules
 
 class FavoriteActivity : AppCompatActivity() {
 
@@ -55,5 +56,10 @@ class FavoriteActivity : AppCompatActivity() {
             rvUser.adapter = adapter
             tvEmpty.visibility = if(favoriteUsers.isNotEmpty()) View.GONE else View.VISIBLE
         })
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        unloadKoinModules(favoriteModule)
     }
 }

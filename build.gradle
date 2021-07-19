@@ -29,6 +29,9 @@ buildscript {
 
     ext.nav_version = "2.3.5"
 
+    ext.sqlcipher_version = "4.4.0"
+    ext.sqlitektx_version = "2.1.0"
+
     repositories {
         google()
         mavenCentral()
